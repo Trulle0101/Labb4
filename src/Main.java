@@ -4,5 +4,4 @@ public class Main
     {
         VocabTrainer program = new VocabTrainer();
         program.start();
-
     }
