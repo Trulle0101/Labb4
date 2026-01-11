@@ -40,6 +40,27 @@ public class AnswerEvaluator
         }
 
         return AnswerResult.WRONG;
+
+    }
+    private static double letterMatchRatio(String correct, String user) {
+        String c = correct.toLowerCase(Locale.ROOT);
+        String u = user.toLowerCase(Locale.ROOT);
+
+        int maxLength = Math.max(c.length(), u.length());
+        int minLength = Math.min(c.length(), u.length());
+
+        if (maxLength == 0) {
+            return 0.0;
+        }
+
+        int matches = 0;
+        for (int i = 0; i < minLength; i++) {
+            if (c.charAt(i) == u.charAt(i)) {
+                matches++;
+            }
+        }
+
+        return (double) matches / maxLength;
     }
 
 }
