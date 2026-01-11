@@ -42,22 +42,20 @@ public class VocabTrainer
 
             asked++;
 
-            switch (result)
+            if (result == AnswerResult.CORRECT)
             {
-                case CORRECT:
-                    correctCount++;
-                    System.out.println("Korrekt! " + correctCount + " rätt av " + asked + " ord.");
-                    break;
-
-                case ALMOST:
-                    String correct = String.join(", ", item.getEnglishTranslations());
-                    System.out.println("Nästan rätt. Korrekt svar är " + correct + ".");
-                    break;
-
-                case WRONG:
-                    String correctWrong = String.join(", ", item.getEnglishTranslations());
-                    System.out.println("Fel. Korrekt svar är " + correctWrong + ".");
-                    break;
+                correctCount++;
+                System.out.println("Korrekt! " + correctCount + " rätt av " + asked + " ord.");
+            }
+            else if (result == AnswerResult.ALMOST)
+            {
+                String correct = String.join(", ", item.getEnglishTranslations());
+                System.out.println("Nästan rätt. Korrekt svar är " + correct + ".");
+            }
+            else if (result == AnswerResult.WRONG)
+            {
+                String correctWrong = String.join(", ", item.getEnglishTranslations());
+                System.out.println("Fel. Korrekt svar är " + correctWrong + ".");
             }
 
             System.out.println();
@@ -83,3 +81,4 @@ public class VocabTrainer
         return list;
     }
 }
+
