@@ -11,5 +11,14 @@ public class VocabWord
         this.englishTranslations = englishTranslations;
     }
 
+    public String getSwedishWord()
+    {
+        return swedishWord;
+    }
+
+    public List<String> getEnglishTranslations()
+    {
+        return englishTranslations;
+    }
 
 }
